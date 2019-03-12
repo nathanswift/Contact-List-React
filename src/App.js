@@ -1,28 +1,30 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Contacts from './Contacts'
+import { Header, Icon, Container } from 'semantic-ui-react'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+class App extends React.Component {
+  state = {
+    contacts: [
+      {id: 1, firstName: 'Jerry', phone: '801-121-5356'},
+      {id: 2, firstName: 'George', phone: '801-666-5356'},
+      {id: 3, firstName: 'Cosmo', phone: '801-121-6969'}
+    ]
+  }
+  
+render() {
+
+  return (
+    <Container  textAlign='center'>
+      <Header as='h2' icon>
+        <Icon name='users' circular />
+        <Header.Content>React Contact List</Header.Content>
+      </Header>
+      <Contacts contactList={this.state.contacts} />  
+    </Container>
     );
   }
 }
 
-export default App;
+export default App
+
+//contact list could be anything! it's a prop and you can name it w/e you choose
